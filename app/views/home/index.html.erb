@@ -1,0 +1,31 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <h1>The Hacking Trombi</h1>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Settings", edit_user_registration_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<% if user_signed_in? %>
+  <p id="welcome">
+    Welcoming to the Hacking's Project Trombinoscope !
+  </p>
+<% else %>
+  <p id="welcome">
+    Sign in if you already have an account otherwise please sign up !
+  </p>
+<% end %>
+
+<footer>
+  Made by Augustin Holguin - 2017
+</footer>
