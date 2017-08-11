@@ -18,13 +18,20 @@
 
 <% if user_signed_in? %>
   <p id="welcome">
-    Welcoming to the Hacking's Project Trombinoscope !
+    Welcome to the Hacking's Project Trombinoscope !
   </p>
+
+  <% @users.each do |user| %>
+    <%= user.email %>
+  <% end %>
+
 <% else %>
   <p id="welcome">
     Sign in if you already have an account otherwise please sign up !
   </p>
 <% end %>
+
+<%= @user %>
 
 <footer>
   Made by Augustin Holguin - 2017
