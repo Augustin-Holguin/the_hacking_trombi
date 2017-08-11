@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <h1>The Hacking Trombi</h1>
+    <h1>The Hacking Trombinoscope</h1>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
@@ -18,15 +18,31 @@
 
 <% if user_signed_in? %>
   <p id="welcome">
-    Welcome to the Hacking's Project Trombinoscope !
+    Welcome to the Hacking's Project Trombinoscope
   </p>
 
-  <% @users.each do |user| %>
-    <%= user.slack %><br />
-    <%= user.email %>
-    <%= user.bio %>
-  <% end %>
+<!-- Trombi -->
 
+<h3>Our users - Trombinoscope</h3>
+<div class="trombi">
+  <table style= "width:100%">
+    <thead>
+      <tr>
+        <th>Slack handle</th>
+        <th>Email</th>
+        <th>Bio</th>
+      </tr>
+    </thead>
+
+      <% @users.each do |user| %>
+      <tbody>
+        <td><%= user.slack %></td>
+        <td><%= user.email %></td>
+        <td><%= user.bio %></td>
+      </tbody>
+      <% end %>
+  </table>
+</div>
 
 <% else %>
   <p id="welcome">
